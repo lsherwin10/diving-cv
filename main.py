@@ -8,6 +8,21 @@ WINDOW_HEIGHT = 750
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
+BODY_PARTS = {
+    "LEFT_WRIST": mp_pose.PoseLandmark.LEFT_WRIST,
+    "LEFT_ELBOW": mp_pose.PoseLandmark.LEFT_ELBOW,
+    "LEFT_SHOULDER": mp_pose.PoseLandmark.LEFT_SHOULDER,
+    "LEFT_HIP": mp_pose.PoseLandmark.LEFT_HIP,
+    "LEFT_KNEE": mp_pose.PoseLandmark.LEFT_KNEE,
+    "RIGHT_ANKLE": mp_pose.PoseLandmark.RIGHT_ANKLE,
+    "RIGHT_WRIST": mp_pose.PoseLandmark.RIGHT_WRIST,
+    "RIGHT_ELBOW": mp_pose.PoseLandmark.RIGHT_ELBOW,
+    "RIGHT_SHOULDER": mp_pose.PoseLandmark.RIGHT_SHOULDER,
+    "RIGHT_HIP": mp_pose.PoseLandmark.RIGHT_HIP,
+    "RIGHT_KNEE": mp_pose.PoseLandmark.RIGHT_KNEE,
+    "RIGHT_ANKLE": mp_pose.PoseLandmark.RIGHT_ANKLE,
+}
+
 # VIDEO REFERENCE: https://www.youtube.com/watch?v=06TE_U21FK4
 
 
@@ -25,6 +40,42 @@ def calculate_angle(a, b, c):
         angle = 360 - angle
 
     return angle
+
+
+def get_landmark_coords(landmarks, first, mid, end):
+    first_landmark = BODY_PARTS[first]
+    mid_landmark = BODY_PARTS[mid]
+    end_landmark = BODY_PARTS[end]
+    first_coords = [
+        landmarks[first_landmark.value].x,
+        landmarks[first_landmark.value].y,
+    ]
+    mid_coords = [
+        landmarks[mid_landmark.value].x,
+        landmarks[mid_landmark.value].y,
+    ]
+    end_coords = [
+        landmarks[end_landmark.value].x,
+        landmarks[end_landmark.value].y,
+    ]
+
+    return first_coords, mid_coords, end_coords
+
+
+def get_joint_angle(first, mid, end):
+    angle = calculate_angle(first, mid, end)
+
+    return angle, tuple(np.multiply(mid, [WINDOW_WIDTH, WINDOW_HEIGHT]).astype(int))
+
+
+# Takes in a list of 3-tuples of joint strings and returns a list of tuples
+# containing the angle and tuple of coordinates for that angle to be drawn at
+def get_joint_angle_list(landmarks, joint_groups):
+    result = []
+    for group in joint_groups:
+        result.append(get_joint_angle(*get_landmark_coords(landmarks, *group)))
+
+    return result
 
 
 # VIDEO FEED
@@ -51,34 +102,25 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         try:
             landmarks = results.pose_landmarks.landmark
 
-            # Get coordinates
-            shoulder = [
-                landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].x,
-                landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value].y,
-            ]
-            elbow = [
-                landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,
-                landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y,
-            ]
-            wrist = [
-                landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x,
-                landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y,
+            joint_groups = [
+                ("LEFT_SHOULDER", "LEFT_ELBOW", "LEFT_WRIST"),
+                ("RIGHT_SHOULDER", "RIGHT_ELBOW", "RIGHT_WRIST"),
             ]
 
-            # Calculate angle
-            angle = calculate_angle(shoulder, elbow, wrist)
+            joint_angles = get_joint_angle_list(landmarks, joint_groups)
 
-            # Visualize angle
-            cv2.putText(
-                image,
-                str(angle),
-                tuple(np.multiply(elbow, [WINDOW_WIDTH, WINDOW_HEIGHT]).astype(int)),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                (255, 255, 255),
-                2,
-                cv2.LINE_AA,
-            )
+            # Visualize angles
+            for joint_angle in joint_angles:
+                cv2.putText(
+                    image,
+                    str(joint_angle[0]),
+                    joint_angle[1],
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5,
+                    (255, 255, 255),
+                    2,
+                    cv2.LINE_AA,
+                )
 
         except:
             pass
