@@ -14,7 +14,7 @@ BODY_PARTS = {
     "LEFT_SHOULDER": mp_pose.PoseLandmark.LEFT_SHOULDER,
     "LEFT_HIP": mp_pose.PoseLandmark.LEFT_HIP,
     "LEFT_KNEE": mp_pose.PoseLandmark.LEFT_KNEE,
-    "RIGHT_ANKLE": mp_pose.PoseLandmark.RIGHT_ANKLE,
+    "LEFT_ANKLE": mp_pose.PoseLandmark.RIGHT_ANKLE,
     "RIGHT_WRIST": mp_pose.PoseLandmark.RIGHT_WRIST,
     "RIGHT_ELBOW": mp_pose.PoseLandmark.RIGHT_ELBOW,
     "RIGHT_SHOULDER": mp_pose.PoseLandmark.RIGHT_SHOULDER,
@@ -73,7 +73,10 @@ def get_joint_angle(first, mid, end):
 def get_joint_angle_list(landmarks, joint_groups):
     result = []
     for group in joint_groups:
-        result.append(get_joint_angle(*get_landmark_coords(landmarks, *group)))
+        try:
+            result.append(get_joint_angle(*get_landmark_coords(landmarks, *group)))
+        except:
+            pass
 
     return result
 
@@ -105,6 +108,10 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
             joint_groups = [
                 ("LEFT_SHOULDER", "LEFT_ELBOW", "LEFT_WRIST"),
                 ("RIGHT_SHOULDER", "RIGHT_ELBOW", "RIGHT_WRIST"),
+                ("LEFT_HIP", "LEFT_KNEE", "LEFT_ANKLE"),
+                ("RIGHT_HIP", "RIGHT_KNEE", "RIGHT_ANKLE"),
+                ("LEFT_SHOULDER", "LEFT_HIP", "LEFT_KNEE"),
+                ("RIGHT_SHOULDER", "RIGHT_HIP", "RIGHT_KNEE"),
             ]
 
             joint_angles = get_joint_angle_list(landmarks, joint_groups)
