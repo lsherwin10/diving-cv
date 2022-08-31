@@ -2,9 +2,6 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-WINDOW_WIDTH = 1000
-WINDOW_HEIGHT = 750
-
 mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
@@ -62,89 +59,134 @@ def get_landmark_coords(landmarks, first, mid, end):
     return first_coords, mid_coords, end_coords
 
 
-def get_joint_angle(first, mid, end):
+def get_joint_angle(first, mid, end, width, height):
     angle = calculate_angle(first, mid, end)
 
-    return angle, tuple(np.multiply(mid, [WINDOW_WIDTH, WINDOW_HEIGHT]).astype(int))
+    return angle, tuple(np.multiply(mid, [width, height]).astype(int))
 
 
-# Takes in a list of 3-tuples of joint strings and returns a list of tuples
-# containing the angle and tuple of coordinates for that angle to be drawn at
-def get_joint_angle_list(landmarks, joint_groups):
-    result = []
-    for group in joint_groups:
+def get_joint_angle_list(landmarks, joint_groups, width, height):
+    result = dict()
+    for label, group in joint_groups.items():
         try:
-            result.append(get_joint_angle(*get_landmark_coords(landmarks, *group)))
+            result[label] = get_joint_angle(
+                *get_landmark_coords(landmarks, *group), width, height
+            )
         except:
             pass
 
     return result
 
 
-# VIDEO FEED
-cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, WINDOW_WIDTH)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, WINDOW_HEIGHT)
+cap = cv2.VideoCapture("diving.mov")
+line_height = 20
 
 with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
+    if not cap.isOpened():
+        print("Error opening video file")
+    else:
+        frame_width = int(cap.get(3))
+        frame_height = int(cap.get(4))
+        frame_size = (frame_width, frame_height)
+        print(frame_size)
+        fps = int(cap.get(5))
+        frame_count = cap.get(7)
+        output = cv2.VideoWriter(
+            "diving_analyzed.mov",
+            cv2.VideoWriter_fourcc(*"mp4v"),
+            fps,
+            frame_size,
+        )
     while cap.isOpened():
         ret, frame = cap.read()
+        if ret:
+            # Recolor image to RGB
+            image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            image.flags.writeable = False
 
-        # Recolor image to RGB
-        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        image.flags.writeable = False
+            # Make detection
+            results = pose.process(image)
 
-        # Make detection
-        results = pose.process(image)
+            # Recolor back to BGR
+            image.flags.writeable = True
+            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-        # Recolor back to BGR
-        image.flags.writeable = True
-        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+            # Extract landmarks
+            try:
+                landmarks = results.pose_landmarks.landmark
 
-        # Extract landmarks
-        try:
-            landmarks = results.pose_landmarks.landmark
+                # joint_groups is a dict of key joint labels and value 3-tuples
+                #   of the first, mid, and end points to measure a joint angle
+                joint_groups = {
+                    "Left Elbow Bend": ("LEFT_SHOULDER", "LEFT_ELBOW", "LEFT_WRIST"),
+                    "Right Elbow Bend": (
+                        "RIGHT_SHOULDER",
+                        "RIGHT_ELBOW",
+                        "RIGHT_WRIST",
+                    ),
+                    "Left Shoulder Bend": ("LEFT_ELBOW", "LEFT_SHOULDER", "LEFT_HIP"),
+                    "Right Shoulder Bend": (
+                        "RIGHT_ELBOW",
+                        "RIGHT_SHOULDER",
+                        "RIGHT_HIP",
+                    ),
+                    "Left Knee Bend": ("LEFT_HIP", "LEFT_KNEE", "LEFT_ANKLE"),
+                    "Right Knee Bend": ("RIGHT_HIP", "RIGHT_KNEE", "RIGHT_ANKLE"),
+                    "Left Hip Bend": ("LEFT_SHOULDER", "LEFT_HIP", "LEFT_KNEE"),
+                    "Right Hip Bend": ("RIGHT_SHOULDER", "RIGHT_HIP", "RIGHT_KNEE"),
+                }
 
-            joint_groups = [
-                ("LEFT_SHOULDER", "LEFT_ELBOW", "LEFT_WRIST"),
-                ("RIGHT_SHOULDER", "RIGHT_ELBOW", "RIGHT_WRIST"),
-                ("LEFT_HIP", "LEFT_KNEE", "LEFT_ANKLE"),
-                ("RIGHT_HIP", "RIGHT_KNEE", "RIGHT_ANKLE"),
-                ("LEFT_SHOULDER", "LEFT_HIP", "LEFT_KNEE"),
-                ("RIGHT_SHOULDER", "RIGHT_HIP", "RIGHT_KNEE"),
-            ]
-
-            joint_angles = get_joint_angle_list(landmarks, joint_groups)
-
-            # Visualize angles
-            for joint_angle in joint_angles:
-                cv2.putText(
-                    image,
-                    str(joint_angle[0]),
-                    joint_angle[1],
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.5,
-                    (255, 255, 255),
-                    2,
-                    cv2.LINE_AA,
+                joint_angles = get_joint_angle_list(
+                    landmarks, joint_groups, frame_width, frame_height
                 )
 
-        except:
-            pass
+                # Visualize angles
+                text_coords = (10, 20)
+                box_scale_x = 250 / 586
+                box_scale_y = 21 / 826
+                box_coords = (
+                    (0, 0),
+                    (
+                        int(box_scale_x * frame_width),
+                        int(box_scale_y * frame_height * len(joint_angles)),
+                    ),
+                )
+                cv2.rectangle(image, box_coords[0], box_coords[1], (0, 0, 0), -1)
 
-        # Render detections
-        mp_drawing.draw_landmarks(
-            image,
-            results.pose_landmarks,
-            mp_pose.POSE_CONNECTIONS,
-            mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2),
-            mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2),
-        )
+                for joint_label, joint_angle in joint_angles.items():
+                    print(joint_label)
+                    # Draw joint angle
+                    cv2.putText(
+                        image,
+                        joint_label + ": " + str(int(joint_angle[0])) + " deg",
+                        text_coords,
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.5,
+                        (255, 255, 255),
+                        2,
+                        cv2.LINE_AA,
+                    )
+                    text_coords = (text_coords[0], text_coords[1] + line_height)
 
-        cv2.imshow("Mediapipe Feed", image)
+            except:
+                pass
 
-        if cv2.waitKey(10) & 0xFF == ord("q"):
+            # Render detections
+            mp_drawing.draw_landmarks(
+                image,
+                results.pose_landmarks,
+                mp_pose.POSE_CONNECTIONS,
+                mp_drawing.DrawingSpec(
+                    color=(245, 117, 66), thickness=2, circle_radius=2
+                ),
+                mp_drawing.DrawingSpec(
+                    color=(245, 66, 230), thickness=2, circle_radius=2
+                ),
+            )
+
+            output.write(image)
+        else:
             break
 
     cap.release()
-    cv2.destroyAllWindows()
+    output.release()
