@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00D3B13A28C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */; };
+		00D3B13C28C1BC84008F2C84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B13B28C1BC84008F2C84 /* ContentView.swift */; };
+		00D3B13E28C1BC88008F2C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D3B13D28C1BC88008F2C84 /* Assets.xcassets */; };
+		00D3B14128C1BC88008F2C84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D3B14028C1BC88008F2C84 /* Preview Assets.xcassets */; };
+		00D3B14C28C1C1F3008F2C84 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B14B28C1C1F3008F2C84 /* FileManager+Extension.swift */; };
+		00D3B14E28C1C413008F2C84 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B14D28C1C413008F2C84 /* ImagePicker.swift */; };
+		00D3B15028C1C43E008F2C84 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B14F28C1C43E008F2C84 /* ZoomableScrollView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00D3B13628C1BC84008F2C84 /* Pose Estimation Diver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pose Estimation Diver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose_Estimation_DiverApp.swift; sourceTree = "<group>"; };
+		00D3B13B28C1BC84008F2C84 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		00D3B13D28C1BC88008F2C84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		00D3B14028C1BC88008F2C84 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		00D3B14B28C1C1F3008F2C84 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		00D3B14D28C1C413008F2C84 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		00D3B14F28C1C43E008F2C84 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00D3B13328C1BC84008F2C84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00D3B12D28C1BC84008F2C84 = {
+			isa = PBXGroup;
+			children = (
+				00D3B13828C1BC84008F2C84 /* Pose Estimation Diver */,
+				00D3B13728C1BC84008F2C84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00D3B13728C1BC84008F2C84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B13628C1BC84008F2C84 /* Pose Estimation Diver.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00D3B13828C1BC84008F2C84 /* Pose Estimation Diver */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B14A28C1C1C0008F2C84 /* Extensions */,
+				00D3B14928C1C1B4008F2C84 /* UIViewRepresentables */,
+				00D3B14828C1C1A3008F2C84 /* Models */,
+				00D3B14728C1C16D008F2C84 /* Views */,
+				00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */,
+				00D3B13D28C1BC88008F2C84 /* Assets.xcassets */,
+				00D3B13F28C1BC88008F2C84 /* Preview Content */,
+			);
+			path = "Pose Estimation Diver";
+			sourceTree = "<group>";
+		};
+		00D3B13F28C1BC88008F2C84 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B14028C1BC88008F2C84 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00D3B14728C1C16D008F2C84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B13B28C1BC84008F2C84 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00D3B14828C1C1A3008F2C84 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		00D3B14928C1C1B4008F2C84 /* UIViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B14D28C1C413008F2C84 /* ImagePicker.swift */,
+				00D3B14F28C1C43E008F2C84 /* ZoomableScrollView.swift */,
+			);
+			path = UIViewRepresentables;
+			sourceTree = "<group>";
+		};
+		00D3B14A28C1C1C0008F2C84 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00D3B14B28C1C1F3008F2C84 /* FileManager+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00D3B13528C1BC84008F2C84 /* Pose Estimation Diver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00D3B14428C1BC88008F2C84 /* Build configuration list for PBXNativeTarget "Pose Estimation Diver" */;
+			buildPhases = (
+				00D3B13228C1BC84008F2C84 /* Sources */,
+				00D3B13328C1BC84008F2C84 /* Frameworks */,
+				00D3B13428C1BC84008F2C84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pose Estimation Diver";
+			productName = "Pose Estimation Diver";
+			productReference = 00D3B13628C1BC84008F2C84 /* Pose Estimation Diver.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00D3B12E28C1BC84008F2C84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					00D3B13528C1BC84008F2C84 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 00D3B13128C1BC84008F2C84 /* Build configuration list for PBXProject "Pose Estimation Diver" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 00D3B12D28C1BC84008F2C84;
+			productRefGroup = 00D3B13728C1BC84008F2C84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00D3B13528C1BC84008F2C84 /* Pose Estimation Diver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00D3B13428C1BC84008F2C84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D3B14128C1BC88008F2C84 /* Preview Assets.xcassets in Resources */,
+				00D3B13E28C1BC88008F2C84 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00D3B13228C1BC84008F2C84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00D3B15028C1C43E008F2C84 /* ZoomableScrollView.swift in Sources */,
+				00D3B13C28C1BC84008F2C84 /* ContentView.swift in Sources */,
+				00D3B14E28C1C413008F2C84 /* ImagePicker.swift in Sources */,
+				00D3B13A28C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift in Sources */,
+				00D3B14C28C1C1F3008F2C84 /* FileManager+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		00D3B14228C1BC88008F2C84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00D3B14328C1BC88008F2C84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00D3B14528C1BC88008F2C84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pose Estimation Diver/Preview Content\"";
+				DEVELOPMENT_TEAM = UCV4CFXWW3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.logansherwin.Pose-Estimation-Diver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00D3B14628C1BC88008F2C84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pose Estimation Diver/Preview Content\"";
+				DEVELOPMENT_TEAM = UCV4CFXWW3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.logansherwin.Pose-Estimation-Diver";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00D3B13128C1BC84008F2C84 /* Build configuration list for PBXProject "Pose Estimation Diver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D3B14228C1BC88008F2C84 /* Debug */,
+				00D3B14328C1BC88008F2C84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00D3B14428C1BC88008F2C84 /* Build configuration list for PBXNativeTarget "Pose Estimation Diver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00D3B14528C1BC88008F2C84 /* Debug */,
+				00D3B14628C1BC88008F2C84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00D3B12E28C1BC84008F2C84 /* Project object */;
+}
