@@ -1,19 +1,54 @@
+"""
+Diving Pose Estimation with Joint Angles
+
+Usage: diving [options]
+
+Options:
+    -i FILE --input=FILE  Input file path in .mov format [default: diving.mov].
+    -o FILE --output=FILE  Output file path .mov format [default: diving_analyzed.mov].
+"""
+
 import cv2
 import mediapipe as mp
 from tqdm import tqdm
-
+from docopt import docopt
+import os
 import utils
 
 # VIDEO REFERENCE: https://www.youtube.com/watch?v=06TE_U21FK4
 
 if __name__ == "__main__":
+    arguments = docopt(__doc__)
+
     mp_drawing = mp.solutions.drawing_utils
     mp_pose = mp.solutions.pose
-
-    path = "diving.mov"
-    cap = cv2.VideoCapture(path)
     line_height = 20
 
+    # Test for valid input path
+    path = arguments["--input"]
+    if len(path) < 5:
+        raise IOError(f"Specified input file must be at least 5 characters long")
+    elif path[-4:] != ".mov":
+        raise IOError(f"Specified input file '{path}' must have .mov extension")
+
+    if os.path.exists(path):
+        cap = cv2.VideoCapture(path)
+    else:
+        raise OSError(f"Specified input path '{path}' does not exist")
+
+    # Test for valid output path and create any missing directories
+    dir, out_file = os.path.split(arguments["--output"])
+    if dir != "":
+        os.makedirs(dir, exist_ok=True)
+
+    if len(out_file) < 5:
+        raise IOError(f"Specified output file must be at least 5 characters long")
+    elif out_file[-4:] != ".mov":
+        raise IOError(
+            f"Specified output file '{arguments['--output']}' must have .mov extension"
+        )
+
+    # Begin processing video capture
     with mp_pose.Pose(
         min_detection_confidence=0.5, min_tracking_confidence=0.5
     ) as pose:
@@ -26,7 +61,7 @@ if __name__ == "__main__":
             fps = int(cap.get(5))
             frame_count = int(cap.get(7))
             output = cv2.VideoWriter(
-                "diving_analyzed.mov", cv2.VideoWriter_fourcc(*"mp4v"), fps, frame_size
+                arguments["--output"], cv2.VideoWriter_fourcc(*"mp4v"), fps, frame_size
             )
             with tqdm(total=frame_count) as pbar:
                 # Iterate through each frame from the video capture
