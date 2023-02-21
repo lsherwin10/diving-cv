@@ -88,7 +88,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         frame_width = int(cap.get(3))
         frame_height = int(cap.get(4))
         frame_size = (frame_width, frame_height)
-        print(frame_size)
+        # print(frame_size)
         fps = int(cap.get(5))
         frame_count = cap.get(7)
         output = cv2.VideoWriter(
@@ -154,7 +154,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                 cv2.rectangle(image, box_coords[0], box_coords[1], (0, 0, 0), -1)
 
                 for joint_label, joint_angle in joint_angles.items():
-                    print(joint_label)
+                    # print(joint_label)
                     # Draw joint angle
                     cv2.putText(
                         image,
