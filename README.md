@@ -1,7 +1,9 @@
 # diving-cv
+## Installation
+First, clone the repository to your local machine. Once you have done this, you can choose to create a virtual machine for this project's packages or install them in your global site-packages. Install the packages from `requirements.txt` using `pip3 install -r requirements.txt`.
 
 ## Usage
-After cloning the repository and installing the packages in `requirements.txt` using `pip3 install -r requirements.txt`, you can execute the program by running `python3 main.py`. You can provide any of the options shown below to modify the input or output file paths. Any directories that do not exist in the output path will be created for you. During execution, the CLI should present a progress bar while the frames are being processed.
+After installation, you can execute the program by running `python3 main.py`. You can provide any of the options shown below to modify the input or output file paths. Any directories that do not exist in the output path will be created for you. During execution, the CLI should present a progress bar while the frames are being processed.
 
 ```bash
 Options:
