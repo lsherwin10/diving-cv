@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0080658F28D7A19200592A71 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080658E28D7A19200592A71 /* ViewModel.swift */; };
+		0080659128D7A46400592A71 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659028D7A46400592A71 /* Picker.swift */; };
+		0080659328D7D83D00592A71 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659228D7D83D00592A71 /* MyImage.swift */; };
+		0080659528D7D8C600592A71 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659428D7D8C600592A71 /* MyImageError.swift */; };
+		0080659928D7DBF400592A71 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659828D7DBF400592A71 /* ButtonLabel.swift */; };
+		0080659D28D820DD00592A71 /* VideoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659C28D820DD00592A71 /* VideoPicker.swift */; };
+		0080659F28D8225300592A71 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080659E28D8225300592A71 /* VideoView.swift */; };
+		008065A128D8253E00592A71 /* VideoRecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008065A028D8253E00592A71 /* VideoRecordingView.swift */; };
+		008065A528D825FC00592A71 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008065A428D825FC00592A71 /* RecordingView.swift */; };
+		008065AA28D82CBB00592A71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008065A928D82CBB00592A71 /* ContentView.swift */; };
 		00D3B13A28C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */; };
 		00D3B13C28C1BC84008F2C84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3B13B28C1BC84008F2C84 /* ContentView.swift */; };
 		00D3B13E28C1BC88008F2C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00D3B13D28C1BC88008F2C84 /* Assets.xcassets */; };
@@ -17,6 +27,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0080658E28D7A19200592A71 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		0080659028D7A46400592A71 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		0080659228D7D83D00592A71 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
+		0080659428D7D8C600592A71 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
+		0080659828D7DBF400592A71 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
+		0080659C28D820DD00592A71 /* VideoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPicker.swift; sourceTree = "<group>"; };
+		0080659E28D8225300592A71 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		008065A028D8253E00592A71 /* VideoRecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRecordingView.swift; sourceTree = "<group>"; };
+		008065A428D825FC00592A71 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		008065A928D82CBB00592A71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		00D3B13628C1BC84008F2C84 /* Pose Estimation Diver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pose Estimation Diver.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pose_Estimation_DiverApp.swift; sourceTree = "<group>"; };
 		00D3B13B28C1BC84008F2C84 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +58,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0080658D28D7A17500592A71 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		008065A628D82C5A00592A71 /* Stewart Lynch Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				0080658D28D7A17500592A71 /* ViewModels */,
+				0080658E28D7A19200592A71 /* ViewModel.swift */,
+				00D3B14A28C1C1C0008F2C84 /* Extensions */,
+				00D3B14B28C1C1F3008F2C84 /* FileManager+Extension.swift */,
+				00D3B14928C1C1B4008F2C84 /* UIViewRepresentables */,
+				00D3B14D28C1C413008F2C84 /* ImagePicker.swift */,
+				00D3B14F28C1C43E008F2C84 /* ZoomableScrollView.swift */,
+				00D3B14828C1C1A3008F2C84 /* Models */,
+				0080659028D7A46400592A71 /* Picker.swift */,
+				0080659228D7D83D00592A71 /* MyImage.swift */,
+				0080659428D7D8C600592A71 /* MyImageError.swift */,
+				00D3B14728C1C16D008F2C84 /* Views */,
+			);
+			path = "Stewart Lynch Tutorial";
+			sourceTree = "<group>";
+		};
+		008065A728D82C9700592A71 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				0080659C28D820DD00592A71 /* VideoPicker.swift */,
+				0080659E28D8225300592A71 /* VideoView.swift */,
+				008065A028D8253E00592A71 /* VideoRecordingView.swift */,
+				008065A428D825FC00592A71 /* RecordingView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		008065A828D82CA500592A71 /* Rebeloper */ = {
+			isa = PBXGroup;
+			children = (
+				008065A928D82CBB00592A71 /* ContentView.swift */,
+			);
+			path = Rebeloper;
+			sourceTree = "<group>";
+		};
 		00D3B12D28C1BC84008F2C84 = {
 			isa = PBXGroup;
 			children = (
@@ -57,10 +122,9 @@
 		00D3B13828C1BC84008F2C84 /* Pose Estimation Diver */ = {
 			isa = PBXGroup;
 			children = (
-				00D3B14A28C1C1C0008F2C84 /* Extensions */,
-				00D3B14928C1C1B4008F2C84 /* UIViewRepresentables */,
-				00D3B14828C1C1A3008F2C84 /* Models */,
-				00D3B14728C1C16D008F2C84 /* Views */,
+				008065A828D82CA500592A71 /* Rebeloper */,
+				008065A728D82C9700592A71 /* Test */,
+				008065A628D82C5A00592A71 /* Stewart Lynch Tutorial */,
 				00D3B13928C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift */,
 				00D3B13D28C1BC88008F2C84 /* Assets.xcassets */,
 				00D3B13F28C1BC88008F2C84 /* Preview Content */,
@@ -80,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				00D3B13B28C1BC84008F2C84 /* ContentView.swift */,
+				0080659828D7DBF400592A71 /* ButtonLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,8 +159,6 @@
 		00D3B14928C1C1B4008F2C84 /* UIViewRepresentables */ = {
 			isa = PBXGroup;
 			children = (
-				00D3B14D28C1C413008F2C84 /* ImagePicker.swift */,
-				00D3B14F28C1C43E008F2C84 /* ZoomableScrollView.swift */,
 			);
 			path = UIViewRepresentables;
 			sourceTree = "<group>";
@@ -103,7 +166,6 @@
 		00D3B14A28C1C1C0008F2C84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				00D3B14B28C1C1F3008F2C84 /* FileManager+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,10 +241,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				00D3B15028C1C43E008F2C84 /* ZoomableScrollView.swift in Sources */,
+				0080659328D7D83D00592A71 /* MyImage.swift in Sources */,
 				00D3B13C28C1BC84008F2C84 /* ContentView.swift in Sources */,
+				0080659128D7A46400592A71 /* Picker.swift in Sources */,
 				00D3B14E28C1C413008F2C84 /* ImagePicker.swift in Sources */,
 				00D3B13A28C1BC84008F2C84 /* Pose_Estimation_DiverApp.swift in Sources */,
+				0080659928D7DBF400592A71 /* ButtonLabel.swift in Sources */,
+				0080658F28D7A19200592A71 /* ViewModel.swift in Sources */,
 				00D3B14C28C1C1F3008F2C84 /* FileManager+Extension.swift in Sources */,
+				008065A128D8253E00592A71 /* VideoRecordingView.swift in Sources */,
+				008065A528D825FC00592A71 /* RecordingView.swift in Sources */,
+				008065AA28D82CBB00592A71 /* ContentView.swift in Sources */,
+				0080659D28D820DD00592A71 /* VideoPicker.swift in Sources */,
+				0080659528D7D8C600592A71 /* MyImageError.swift in Sources */,
+				0080659F28D8225300592A71 /* VideoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +386,10 @@
 				DEVELOPMENT_TEAM = UCV4CFXWW3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Press Allow to grant access";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app wants to record sound.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app wants to save pictures & videos to your library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your picture & video library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -343,6 +419,10 @@
 				DEVELOPMENT_TEAM = UCV4CFXWW3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Press Allow to grant access";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app wants to record sound.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "This app wants to save pictures & videos to your library.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app wants to use your picture & video library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
