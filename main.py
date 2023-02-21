@@ -142,8 +142,8 @@ if __name__ == "__main__":
                         pbar.update()
                     else:
                         break
+            output.release()
         else:
             print("Error opening video file")
 
         cap.release()
-        output.release()
